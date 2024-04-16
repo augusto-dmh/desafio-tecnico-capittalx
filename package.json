@@ -4,13 +4,7 @@
   "description": "Desafio técnico do processo seletivo da CapittalX",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "engines": {
-    "node": ">=18.0.0",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon api/src/server.js | npx pino-pretty",
     "build": "sucrase ./api/src -d ./dist --transforms imports",
     "start": "node api/dist/server.js",
@@ -19,6 +13,12 @@
     "prettier": "prettier . --check",
     "prettier:fix": "prettier . --write",
     "format": "npm run prettier:fix && npm run lint:fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0"
   },
   "devDependencies": {
     "eslint": "^8.48.0",
