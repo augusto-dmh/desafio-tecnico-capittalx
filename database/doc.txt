@@ -1,0 +1,34 @@
+Entities: User, Product, Category, Rating
+
+Columns common to all entities:
+- id: primary key/auto-incremented; INT datatype column.
+- created_at: DATE datatype column.
+- updated_at: DATE datatype column.
+
+User: the end-user data
+- email: unique key; VARCHAR datatype column.
+- password: TEXT datatype column. It stores the user's password hash.
+
+Product: the product data
+- title: VARCHAR datatype column. It stores the name of the product to be shown to the end-user.
+- price: FLOAT datatype column. It stores the price of the product.
+- description: TEXT datatype column. It stores the description of the product.
+- category_id: foreign key/ INT datatype column. It references 'id' from Category. It stores the 'id' of the category the product belongs to.
+- image: TEXT datatype column. It’ll be used for creating a URL at the back-end to be sent and used at the front-end ('src' in <img>).
+
+Category: the product category data
+- id: primary key/auto-incremented; INT datatype column.
+- name: unique key; VARCHAR datatype column. It stores the name of the category and it's used at the validation of a new product category.
+
+Rating: the product rating data
+- product_id: foreign key; INT datatype column. It references 'id' from Product. It stores the 'id' of the product the rating is associated with.
+- rate: FLOAT datatype column. It stores the average rating of the product.
+- count: INT datatype column. It stores the number of ratings the product has received.
+
+Relationships:
+
+Product and Rating:
+One-to-One/(1:1): one product can have only one rating (FK product_id in Rating), and one rating belongs to only one product (FK product_id in Rating).
+
+Product and Category:
+One-to-Many/(1:N): one category can have many products (FK category_id in Product), and one product can belong to only one category (FK category_id in Product).
