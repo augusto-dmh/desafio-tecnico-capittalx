@@ -1,0 +1,45 @@
+@startuml DER
+
+entity User {
+    id INT <<PK>>
+    email VARCHAR(255) <<UK>>
+    password TEXT
+    created_at DATE
+    updated_at DATE
+    --
+}
+
+entity Category {
+    id INT <<PK>>
+    name VARCHAR(255) <<UK>>
+    created_at DATE
+    updated_at DATE
+    --
+}
+
+entity Product {
+    id INT <<PK>>
+    title VARCHAR(255)
+    price DECIMAL(6, 2)
+    description TEXT
+    category_id INT <<FK>>
+    image TEXT
+    created_at DATE
+    updated_at DATE
+    --
+}
+
+entity Rating {
+    id INT <<PK>>
+    product_id INT <<FK>>
+    rate DECIMAL(2, 1)
+    count INT
+    created_at DATE
+    updated_at DATE
+    --
+}
+
+Product ||--|| Rating
+Category ||--o{ Product
+
+@enduml
